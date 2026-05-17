@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Margona — الحسابات</title>
+<link rel="stylesheet" href="links.css">
+</head>
+<body>
+
+<div class="bg">
+  <div class="bg-dots"></div>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+</div>
+
+<div class="page">
+
+  <div class="header">
+    <div class="logo-wrap">
+      <img src="logo.jpg" alt="Margona">
+    </div>
+    <h1><span>Margona Accounts</span></h1>
+    <p>روابط الحسابات والإدارات المالية</p>
+  </div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search" placeholder="ابحث عن حساب..." oninput="filterCards()">
+  </div>
+
+  <div class="view active">
+    <div class="sec-title">
+      <span>💰</span>
+      الحسابات الرئيسية
+    </div>
+
+    <div class="grid">
+
+      <a class="card" href="#" target="_blank">
+        <div class="card-top">
+          <div class="card-icon">🏢</div>
+          <div class="card-name">حسابات مرجونه أبو المطامير</div>
+        </div>
+        <div class="card-desc">
+          إدارة حسابات فرع أبو المطامير
+        </div>
+        <div class="card-footer">
+          <span class="card-type">Accounts</span>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://docs.google.com/spreadsheets/d/18M4syBSVnfg6paim9QmG_7C1T27qvc6b/edit?gid=1163823536#gid=1163823536" target="_blank">
+        <div class="card-top">
+          <div class="card-icon">🏢</div>
+          <div class="card-name">حسابات مرجونه النوبارية</div>
+        </div>
+        <div class="card-desc">
+          إدارة حسابات فرع النوبارية
+        </div>
+        <div class="card-footer">
+          <span class="card-type">Accounts</span>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://docs.google.com/spreadsheets/d/1ZkmJ4kn0Sj3aOp8pZFVZ9tXiv40CsfWz/edit?gid=1357007203#gid=1357007203" target="_blank">
+        <div class="card-top">
+          <div class="card-icon">🏢</div>
+          <div class="card-name">حسابات مرجونه برج العرب</div>
+        </div>
+        <div class="card-desc">
+          إدارة حسابات فرع برج العرب
+        </div>
+        <div class="card-footer">
+          <span class="card-type">Accounts</span>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+
+
+
+    </div>
+  </div>
+
+</div>
+
+<div id="empty" class="empty-state">
+  لا توجد نتائج بحث
+</div>
+
+<script>
+function filterCards() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  let found = false;
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    const match = text.includes(q);
+
+    card.style.display = match ? '' : 'none';
+
+    if (match) found = true;
+  });
+
+  document.getElementById('empty').style.display =
+    found ? 'none' : 'block';
+}
+</script>
+
+</body>
+</html>
